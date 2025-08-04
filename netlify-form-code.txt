@@ -1,0 +1,104 @@
+// KEY CODE CHANGES FOR NETLIFY FORMS INTEGRATION
+
+// 1. UPDATE FORM ELEMENT (add these attributes):
+<form 
+  onSubmit={handleSubmit} 
+  className="space-y-6" 
+  name="petition-signature" 
+  method="POST" 
+  data-netlify="true"
+>
+  <input type="hidden" name="form-name" value="petition-signature" />
+
+// 2. UPDATE FORM FIELD NAMES:
+// Change from React state names to Netlify-friendly names:
+<Input name="full-name" />           // was: name="fullName"
+<Input name="email" />               // stays the same
+<Input name="address" />             // stays the same  
+<Input name="phone" />               // stays the same
+<Checkbox name="gig-harbor-resident" /> // was: name="isResident"
+<Textarea name="comments" />         // stays the same
+
+// 3. UPDATE handleInputChange FUNCTION:
+const handleInputChange = (e) => {
+  const { name, value, type, checked } = e.target
+  
+  // Map Netlify form names to state properties
+  const nameMap = {
+    'full-name': 'fullName',
+    'email': 'email',
+    'address': 'address',
+    'phone': 'phone',
+    'gig-harbor-resident': 'isResident',
+    'comments': 'comments'
+  }
+  
+  const stateKey = nameMap[name] || name
+  
+  setFormData(prev => ({
+    ...prev,
+    [stateKey]: type === 'checkbox' ? checked : value
+  }))
+}
+
+// 4. UPDATE handleSubmit FUNCTION (add Netlify submission):
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  if (!formData.fullName || !formData.email || !formData.address) {
+    alert('Please fill in all required fields.')
+    return
+  }
+
+  setIsSubmitting(true)
+  
+  // Update signature counter immediately for user feedback
+  const newSignature = {
+    ...formData,
+    timestamp: new Date().toISOString(),
+    id: Date.now()
+  }
+  
+  const updatedSignatures = [...signatureData, newSignature]
+  setSignatureData(updatedSignatures)
+  setSignatures(prevSignatures => prevSignatures + 1)
+  
+  // Save to localStorage
+  localStorage.setItem('petitionSignatures', JSON.stringify(updatedSignatures))
+  
+  // CREATE FORM DATA FOR NETLIFY
+  const netlifyFormData = new FormData()
+  netlifyFormData.append('form-name', 'petition-signature')
+  netlifyFormData.append('full-name', formData.fullName)
+  netlifyFormData.append('email', formData.email)
+  netlifyFormData.append('address', formData.address)
+  netlifyFormData.append('phone', formData.phone)
+  netlifyFormData.append('gig-harbor-resident', formData.isResident ? 'Yes' : 'No')
+  netlifyFormData.append('comments', formData.comments)
+  netlifyFormData.append('timestamp', new Date().toISOString())
+  
+  try {
+    // SUBMIT TO NETLIFY
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(netlifyFormData).toString()
+    })
+  } catch (error) {
+    console.log('Netlify form submission error:', error)
+    // Continue anyway - local storage still works
+  }
+  
+  // Reset form
+  setFormData({
+    fullName: '',
+    email: '',
+    address: '',
+    phone: '',
+    isResident: false,
+    comments: ''
+  })
+  
+  setIsSubmitting(false)
+  alert('Thank you for signing the petition! Your signature has been recorded.')
+}
+
