@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Rural Gig Harbor - Stop Kensington Gardens Development</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .urgent-banner {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #047857, #059669);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+        
+        .signature-counter {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .facebook { background: #1877f2; }
+        .twitter { background: #1da1f2; }
+        .copy { background: #6b7280; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
+            background: white;
+            margin: 32px 0;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .section h2 {
+            color: #047857;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        
+        .section h3 {
+            color: #047857;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 24px 0 16px 0;
+        }
+        
+        .section p {
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+        
+        .section ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+        
+        .section li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 32px 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-caption {
+            font-style: italic;
+            color: #6b7280;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .stakes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .stakes-card {
+            padding: 24px;
+            border-radius: 8px;
+            border: 2px solid;
+        }
+        
+        .stakes-bad {
+            background: #fef2f2;
+            border-color: #dc2626;
+        }
+        
+        .stakes-good {
+            background: #f0fdf4;
+            border-color: #16a34a;
+        }
+        
+        .stakes-card h3 {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .form-section {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .required {
+            color: #dc2626;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #047857;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 16px 0;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #047857, #059669);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .three-ways {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .way-card {
+            text-align: center;
+            padding: 32px 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .way-number {
+            background: #047857;
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+        
+        .footer {
+            background: #047857;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 48px;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .testimonial {
+            background: #f8fafc;
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid #047857;
+        }
+        
+        .testimonial blockquote {
+            font-style: italic;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+        
+        .testimonial cite {
+            font-weight: 600;
+            color: #047857;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .stakes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 24px;
+                margin: 16px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Urgent Banner -->
+    <div class="urgent-banner">
+        ⏰ Public Hearing August 11th - Submit comments by August 10th!
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🌲 Save Rural Gig Harbor</h1>
+            <p class="subtitle">Stop Kensington Gardens - Protect Our Community from Destructive Development</p>
+            
+            <div class="signature-counter" id="signatureCounter">
+                👥 12 Signatures
+            </div>
+            
+            <div class="social-buttons">
+                <button class="social-btn facebook" onclick="shareOnFacebook()">Share on Facebook</button>
+                <button class="social-btn twitter" onclick="shareOnTwitter()">Share on X (Twitter)</button>
+                <button class="social-btn copy" onclick="copyLink()">Copy Link</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- What's Being Proposed -->
+        <section class="section">
+            <h2>What's Being Proposed: The Truth Behind the Replat</h2>
+            <p>Kensington Gardens Resort Living Community is requesting to divide their property into sub-parcels for what they claim will be 'single-family homes.' We support more housing - our communities genuinely need it. But this isn't about homes for families. This is a master-planned luxury retirement community, which is commercial development prohibited in rural zones. They're using the replat process to circumvent zoning laws by disguising commercial facilities as residential homes.</p>
+        </section>
+
+        <!-- If They Win Here -->
+        <section class="section">
+            <h2>If They Win Here, Nowhere is Safe.</h2>
+            <p>If Kensington Gardens gets away with building four more massive commercial buildings disguised as 'single-family homes,' it will set a precedent for apartment complexes, multi-family residential structures, and other incompatible developments throughout our protected rural areas. Lack of enforcement raises serious questions: if regulations aren't upheld here, what other non-compliant projects might slip through? Our rural character is what makes Gig Harbor distinctive—once we lose these protections, we can't get them back.</p>
+            
+            <div class="image-container">
+                <img src="siteplan.jpg" alt="Kensington Gardens site plan" onclick="openImage(this)">
+                <p class="image-caption"><strong>Their Master Plan:</strong> Multiple "villas" and commercial facilities disguised as single-family homes - this is clearly a commercial resort development, not residential housing</p>
+            </div>
+        </section>
+
+        <!-- What's Really Happening -->
+        <section class="section">
+            <h2>What's Really Happening</h2>
+            <p>Kensington Gardens has already built one 30,000 square foot commercial retirement facility and now wants to build four more buildings on a very similar scale - all while claiming they're 'single-family homes.' If Pierce County approves this deception, every rural area in Gig Harbor becomes a target for similar development.</p>
+            
+            <div class="image-container">
+                <img src="bw.jpg" alt="Kensington Gardens building" onclick="openImage(this)">
+                <p class="image-caption"><strong>The Reality:</strong> This is what Kensington Gardens calls a 'single-family home' - a 30,000 sq ft commercial retirement facility with multiple units</p>
+            </div>
+            
+            <div class="image-container">
+                <img src="Image_2.jpg" alt="Floor plan showing multiple units" onclick="openImage(this)">
+                <p class="image-caption"><strong>Just ONE Floor of Their 'Single-Family Home':</strong> Six separate luxury suites with individual entrances, kitchens, and living areas on a single level - this is clearly a multi-unit commercial facility, not a single-family residence</p>
+            </div>
+
+            <h3>If they succeed here, we can expect:</h3>
+            <ul>
+                <li>Apartment buildings claiming to be 'single-family homes' throughout R5 zones</li>
+                <li>Developers of multi-family residential structures destroying remaining rural areas</li>
+                <li>Commercial operations disguised as houses</li>
+                <li>The erosion of protections that preserve our community character</li>
+            </ul>
+        </section>
+
+        <!-- What We're Losing -->
+        <section class="section">
+            <h2>What We're Losing</h2>
+            
+            <div class="image-container">
+                <img src="Image_3.jpg" alt="Historic homestead" onclick="openImage(this)">
+                <p class="image-caption"><strong>What Was Lost:</strong> The historic homestead and natural landscape that was cleared for this commercial development - once it's gone, we can't get it back</p>
+            </div>
+
+            <h3>🏡 Our Rural Character</h3>
+            <p>The farming heritage, and pastoral character that make Gig Harbor special and are protected by the Pierce County Comprehensive Plan</p>
+
+            <h3>🌿 Natural Beauty</h3>
+            <p>Dense forests, wetlands, wildlife habitat for critically endangered species</p>
+
+            <h3>🚗 Community Safety</h3>
+            <p>Narrow rural roads weren't designed for high-density traffic and emergency vehicles</p>
+
+            <h3>💧 Groundwater Protection</h3>
+            <p>All neighbors are on wells - sewage from high density housing threatens our drinking water</p>
+        </section>
+
+        <!-- What Residents Are Saying -->
+        <section class="section">
+            <h2>What Residents Are Saying</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <blockquote>"My heart breaks seeing forest after forest completely clear cut."</blockquote>
+                    <cite>- Linda Healy</cite>
+                </div>
+                <div class="testimonial">
+                    <blockquote>"What good are community plans if all you need is enough money and time and no plans or rules apply?"</blockquote>
+                    <cite>- Greg Thon</cite>
+                </div>
+                <div class="testimonial">
+                    <blockquote>"We need to protect our rural areas and wildlife"</blockquote>
+                    <cite>- Ruth Johnson</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's At Stake -->
+        <section class="section">
+            <h2>What's At Stake</h2>
+            <div class="stakes-grid">
+                <div class="stakes-card stakes-bad">
+                    <h3>⚠️ IF THIS IS APPROVED:</h3>
+                    <ul>
+                        <li>• Establishes a precedent that could lead to:</li>
+                        <li>• Vulnerable communities housed in inappropriate areas</li>
+                        <li>• Multi-family residential developments eliminating remaining rural areas</li>
+                        <li>• Commercial operations disguised as homes</li>
+                        <li>• End of rural zoning protections</li>
+                        <li>• Traffic, noise, and overdevelopment everywhere</li>
+                        <li>• Loss of wildlife habitat and natural beauty</li>
+                        <li>• Sewage from high density housing contaminating groundwater</li>
+                        <li>• Gig Harbor becomes another overdeveloped suburb</li>
+                    </ul>
+                </div>
+                <div class="stakes-card stakes-good">
+                    <h3>✅ 🌲 IF WE STOP IT:</h3>
+                    <ul>
+                        <li>• New housing is concentrated in areas that can provided needed services</li>
+                        <li>• Wildlife habitat protected</li>
+                        <li>• Rural character preserved</li>
+                        <li>• Groundwater stays clean</li>
+                        <li>• Future generations can enjoy what we love about Gig Harbor</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Petition -->
+        <section class="section">
+            <h2>The Petition</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 24px;">Read what you're signing - this petition will be submitted to Pierce County Planning Office</p>
+            
+            <div style="background: #f8fafc; padding: 24px; border-radius: 8px; border-left: 4px solid #047857;">
+                <p><strong>We, the undersigned, demand Pierce County REJECT the Kensington Gardens Resort Living Community sub-plat and protect our cherished rural and wild areas.</strong></p>
+                
+                <p>This is about more than one development - it's about setting a precedent that will destroy the remaining rural areas in our community.</p>
+                
+                <h3>WHAT THEY'VE DONE:</h3>
+                <p>Kensington Gardens has already built one 30,000 square foot commercial retirement facility with multiple units. County records classify it as a 'commercial retirement home,' yet they continue claiming it's a 'single-family home.'</p>
+                
+                <h3>WHAT THEY WANT:</h3>
+                <p>Four more buildings on a very similar scale, creating a massive commercial resort with residents and dozens of staff members - all in an R5 rural zone where such facilities are PROHIBITED.</p>
+                
+                <h3>WHY WE MUST STOP THIS:</h3>
+                <p>If Pierce County rewards this deception, it signals that ANY developer can:</p>
+                <ul>
+                    <li>Build apartment complexes and claim they're single-family residences</li>
+                    <li>Construct multi-family residential structures in rural zones by calling them 'single dwelling units'</li>
+                    <li>Destroy protected rural areas with impunity</li>
+                    <li>Ignore zoning regulations designed to preserve our community character</li>
+                </ul>
+                
+                <h3>WE DEMAND ACTION ON:</h3>
+                <p><strong>Environmental Protection:</strong> Stop the destruction of wetlands, streams, and dense forest habitat. This area provides critical wildlife habitat for endangered species.</p>
+                
+                <p><strong>Rural Character Preservation:</strong> Preserve the farming heritage and pastoral character that define Gig Harbor and are protected by the Pierce County Comprehensive Plan.</p>
+                
+                <p><strong>Groundwater Protection:</strong> All neighbors are on wells. Commercial waste from hundreds of people threatens our drinking water and must be stopped.</p>
+                
+                <p><strong>Infrastructure Reality:</strong> Our narrow roads, septic systems, and emergency services cannot handle massive commercial operations.</p>
+                
+                <p><strong>Zoning Enforcement:</strong> Commercial retirement facilities are prohibited in R5 zones for good reason. Enforce existing laws instead of rewarding violations.</p>
+                
+                <p><strong>Community Voice:</strong> Listen to the 100+ residents who have repeatedly opposed this inappropriate development.</p>
+                
+                <p><strong>Future Protection:</strong> Prevent the precedent that will destroy every remaining rural area in Pierce County.</p>
+                
+                <p>We live in Gig Harbor for its natural beauty, rural character, and escape from urban density. Don't let developers destroy what makes our community special.</p>
+                
+                <p>We recognize the importance of finding good housing options as we age, just like finding solutions for affordable housing. But there are safe and appropriate locations for these developments - places where residents can access the care and services they need affordably, without destroying rural communities or threatening groundwater.</p>
+                
+                <p><strong>Pierce County must choose: Protect rural Gig Harbor or watch it disappear forever under commercial development.</strong></p>
+                
+                <p style="text-align: center; font-size: 1.2rem; font-weight: 700; color: #047857; margin-top: 24px;">REJECT Kensington Gardens expansion - SAVE Rural Gig Harbor.</p>
+            </div>
+        </section>
+
+        <!-- Sign the Petition Form -->
+        <section class="section form-section">
+            <h2 style="text-align: center;">Sign the Petition - Save Rural Gig Harbor</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 32px;">Your voice matters. Comments will be forwarded directly to Tony Kantas at the Pierce County Planning Office.</p>
+            
+            <div class="form-container">
+                <form name="petition-signature" method="POST" netlify netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+                    <input type="hidden" name="form-name" value="petition-signature">
+                    <div style="display: none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+                        <div class="form-group">
+                            <label for="full-name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="full-name" name="full-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mailing-address">Mailing Address <span class="required">*</span></label>
+                        <input type="text" id="mailing-address" name="mailing-address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number (optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="gig-harbor-resident" name="gig-harbor-resident" value="yes">
+                        <label for="gig-harbor-resident">I am a Gig Harbor area resident</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="personal-comments">Personal Comments: Share why saving rural Gig Harbor matters to you (will be forwarded to Pierce County)</label>
+                        <textarea id="personal-comments" name="personal-comments" placeholder="Tell us why preserving rural Gig Harbor is important to you..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Sign the Petition</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Three Ways -->
+        <section class="section">
+            <h2 style="text-align: center;">Three Ways to Save Rural Gig Harbor</h2>
+            <div class="three-ways">
+                <div class="way-card">
+                    <div class="way-number">1</div>
+                    <h3>Sign this petition</h3>
+                    <p>Join 100+ neighbors fighting for our community</p>
+                </div>
+                <div class="way-card">
+                    <div class="way-number">2</div>
+                    <h3>Include personal comments</h3>
+                    <p>Tell Pierce County why rural character matters</p>
+                </div>
+                <div class="way-card">
+                    <div class="way-number">3</div>
+                    <h3>Attend the hearing</h3>
+                    <p>Show up in person to make your voice heard. More details at <a href="https://tinyurl.com/4dy4xc84" target="_blank" style="color: #047857;">https://tinyurl.com/4dy4xc84</a>.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>All signatures and comments will be compiled and submitted to Tony Kantas, Pierce County Planning Office, before the August 10th deadline. For more information, email stopkensingtongardens@gmail.com.</p>
+            <div style="margin-top: 16px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span>🌲</span>
+                <span>Save Rural Gig Harbor</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; cursor: pointer;" onclick="closeImageModal()">
+        <div style="display: flex; align-items: center; justify-content: center; height: 100%; padding: 20px;">
+            <img id="modalImage" style="max-width: 90%; max-height: 90%; border-radius: 8px;">
+        </div>
+    </div>
+
+    <script>
+        let signatureCount = 12;
+        
+        function updateSignatureCounter() {
+            document.getElementById('signatureCounter').textContent = `👥 ${signatureCount} Signatures`;
+        }
+        
+        function handleSubmit(event) {
+            // Let Netlify handle the form submission
+            signatureCount++;
+            updateSignatureCounter();
+            
+            // Store in localStorage for persistence
+            localStorage.setItem('signatureCount', signatureCount);
+            
+            // Show success message
+            setTimeout(() => {
+                alert('Thank you for signing! Your signature has been submitted to Pierce County.');
+            }, 100);
+        }
+        
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Help save rural Gig Harbor from destructive development!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
+        }
+        
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Help save rural Gig Harbor from destructive development! #SaveRuralGigHarbor');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+        
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+        
+        function openImage(img) {
+            document.getElementById('modalImage').src = img.src;
+            document.getElementById('imageModal').style.display = 'block';
+        }
+        
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        // Load saved signature count
+        window.onload = function() {
+            const saved = localStorage.getItem('signatureCount');
+            if (saved) {
+                signatureCount = parseInt(saved);
+                updateSignatureCounter();
+            }
+        }
+    </script>
+</body>
+</html>
+
